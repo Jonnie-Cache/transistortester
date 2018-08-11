@@ -32,7 +32,7 @@ PARTNO = m328p
 CFLAGS += -DWITH_MENU
 #
 # For ATmega328 the menu function "rotary encoder check" is only enabled with the WITH_ROTARY_CHECK option.
-#CFLAGS += -DWITH_ROTARY_CHECK
+CFLAGS += -DWITH_ROTARY_CHECK
 
 # With the menu item "Show data" the used icons and the font data are displayed for
 # graphical displays after the presentation of calibration data.
@@ -131,7 +131,7 @@ LCD_ST7565_RESISTOR_RATIO = 4
 
 # The option LCD_SCREEN_ROTATE exchange the horizontal and vertial axis.
 # This option is only possible, if horizontal/vertical exchange is supported by the controller.
-#CFLAGS += -DLCD_SCREEN_ROTATE=1
+CFLAGS += -DLCD_SCREEN_ROTATE=1
 # If LCD_ST7565 option is set to 1: Flip the display's horizontal direction.
 CFLAGS += -DLCD_ST7565_H_FLIP=0
 # With LCD_ST7565_H_OFFSET you can specify a horizontal pixel offset to the display window.
@@ -139,7 +139,7 @@ CFLAGS += -DLCD_ST7565_H_FLIP=0
 # OFFSET values can vary for the connected display type to 0, 2 or 4.
 CFLAGS += -DLCD_ST7565_H_OFFSET=0
 # If LCD_ST7565 option is set to 1: Flip the display's vertical direction
-CFLAGS += -DLCD_ST7565_V_FLIP=0
+CFLAGS += -DLCD_ST7565_V_FLIP=1
 # The contrast value can be predefined with the constant VOLUME_VALUE
 # for ST7565 controller the value can be between 0 and 63, for the SSD1306 0 to 255 can be selected.
 #CFLAGS += -DVOLUME_VALUE=25
@@ -196,7 +196,7 @@ CFLAGS += -DWITH_SELFTEST
 #CFLAGS += -DNO_TEST_T1_T7
 
 # FREQUENCY_50HZ enables a 50 Hz frequency generator for up to one minute at the end of selftests.
-#CFLAGS += -DFREQUENCY_50HZ
+CFLAGS += -DFREQUENCY_50HZ
 
 #CFLAGS += -DNO_COMMON_COLLECTOR_HFE
 #CFLAGS += -DNO_COMMON_EMITTER_HFE
@@ -285,7 +285,7 @@ CFLAGS += -DESR_ZERO=20
 CFLAGS += -DNO_AREF_CAP
 
 # The OP_MHZ option tells the software the Operating Frequency of your ATmega.
-OP_MHZ = 8
+OP_MHZ = 16
 
 # Restart from sleep mode will be delayed for 16384 clock tics with crystal mode.
 # Operation with the internal RC-Generator or external clock will delay the restart by only 6 clock tics.
@@ -378,7 +378,8 @@ INHIBIT_SLEEP_MODE = 0
 # Select your programmer type, speed and port, if you wish to use avrdude.
 # setting for DIAMEX ALL_AVR, Atmel AVRISP-mkII
 PROGRAMMER=avrispmkII
-BitClock=1.0
+BitClock=5.0
+#BitClock=1.0
 PORT=usb
 # setting for USBasp
 #PROGRAMMER=usbasp
